@@ -1225,7 +1225,7 @@ func (b *Bootstrap) updateGitMirror(ctx context.Context) (string, error) {
 		return "", err
 	}
 
-	if b.PullRequest != "false" && strings.Contains(b.PipelineProvider, "github") {
+	if false && b.PullRequest != "false" && strings.Contains(b.PipelineProvider, "github") {
 		b.shell.Commentf("Fetch and mirror pull request head from GitHub")
 		refspec := fmt.Sprintf("refs/pull/%s/head", b.PullRequest)
 		// Fetch the PR head from the upstream repository into the mirror.
@@ -1335,7 +1335,7 @@ func (b *Bootstrap) defaultCheckoutPhase(ctx context.Context) error {
 		// or not there is a current head in this repository or another which
 		// references the commit. We presume a commit sha is provided. See:
 		// https://help.github.com/articles/checking-out-pull-requests-locally/#modifying-an-inactive-pull-request-locally
-	} else if b.PullRequest != "false" && strings.Contains(b.PipelineProvider, "github") {
+	} else if false && b.PullRequest != "false" && strings.Contains(b.PipelineProvider, "github") {
 		b.shell.Commentf("Fetch and checkout pull request head from GitHub")
 		refspec := fmt.Sprintf("refs/pull/%s/head", b.PullRequest)
 
